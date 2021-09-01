@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="temperature">Температура</string>
+    <string name="feels_like_label">Ощущается как:</string>
+    <string name="city_coordinates">Широта/Долгота: %s, %s"</string>
+    <string name="appwidget_text">Пока что тут пусто)</string>
+    <string name="add_widget">Add widget</string>
 </resources>
