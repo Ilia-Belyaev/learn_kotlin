@@ -13,14 +13,19 @@ class MainViewModel : ViewModel() {
     private val repoImpl: Repo = RepoImpl()
 
     fun getLiveData() = liveDataToObserve
-    fun getWeatherFromLocalSource() = getDataFromLocalSource()
-    fun getWeatherFromRemoteSource() = getDataFromLocalSource()
+    fun getWeatherFromLocalSource(isRussian: Boolean) = getDataFromLocalSource(isRussian)
 
-    private fun getDataFromLocalSource() {
+    private fun getDataFromLocalSource(isRussian:Boolean = true) {
         liveDataToObserve.value = AppState.Loading
         Thread {
             Thread.sleep(2000)
-            liveDataToObserve.postValue(AppState.Success(repoImpl.getWeatherFromLocalStorage()))
+            liveDataToObserve.postValue(AppState.Success(
+                if(isRussian){
+                    repoImpl.getWeatherFromLocalStorageRus()
+                }else{
+                    repoImpl.getWeatherFromLocalStorageWorld()
+                }
+            ))
         }.start()
     }
 

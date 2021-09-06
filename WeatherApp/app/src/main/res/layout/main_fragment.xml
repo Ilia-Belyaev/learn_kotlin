@@ -6,65 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/mainView"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_fragment_FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/main_fragment_layout_margin"
+        android:src="@drawable/ic_russia" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/main_fragment_item" />
 
-        <TextView
-            android:id="@+id/cityName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/city_name_size"
-            android:textStyle="bold"
-            tools:text="" />
-
-        <TextView
-            android:id="@+id/cityCoordinates"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_5_dp"
-            android:gravity="center"
-            tools:text="" />
-
-        <TextView
-            android:id="@+id/temperatureLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:gravity="center"
-            android:text="@string/temperature" />
-
-        <TextView
-            android:id="@+id/temperatureValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:gravity="center"
-            android:textSize="@dimen/temperature_value_text_size"
-            android:textStyle="bold"
-            tools:text="" />
-
-        <TextView
-            android:id="@+id/feelsLikeLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:gravity="center"
-            android:text="@string/feels_like_label" />
-
-        <TextView
-            android:id="@+id/feelsLikeValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:gravity="center"
-            android:textSize="@dimen/feels_like_text_size"
-            android:textStyle="bold"
-            tools:text="" />
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/loadingLayout"
