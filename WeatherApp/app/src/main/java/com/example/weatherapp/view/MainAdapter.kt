@@ -19,13 +19,13 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(weather: Weather) {
-            itemView.findViewById<TextView>(R.id.cityName).text = weather.city.city
-            itemView.setOnClickListener {
-                listener?.onItemClick(weather)
-
+            itemView.apply {
+                findViewById<TextView>(R.id.cityName).text = weather.city.city
+                setOnClickListener {
+                    listener?.onItemClick(weather)
+                }
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder =
