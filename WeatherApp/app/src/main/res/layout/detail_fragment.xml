@@ -30,6 +30,17 @@
             tools:text="" />
 
         <TextView
+            android:id="@+id/weatherCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:textSize="@dimen/feels_like_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            tools:text="" />
+
+
+        <TextView
             android:id="@+id/temperatureLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
