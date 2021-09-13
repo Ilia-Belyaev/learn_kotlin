@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_textview_padding"
+        android:textSize="@dimen/item_textview_text_size"
+        tools:text="Moscow" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_view_height"
+        android:layout_marginEnd="@dimen/item_view_margin_end"
+        android:background="@color/light_blue_200"
+
+        />
+
+</LinearLayout>

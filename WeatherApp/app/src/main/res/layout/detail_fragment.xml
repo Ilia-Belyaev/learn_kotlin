@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/city_name_size"
+            android:textStyle="bold"
+            tools:text="" />
+
+        <TextView
+            android:id="@+id/cityCoordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5_dp"
+            android:gravity="center"
+            tools:text="" />
+
+        <TextView
+            android:id="@+id/temperatureLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:gravity="center"
+            android:text="@string/temperature" />
+
+        <TextView
+            android:id="@+id/temperatureValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:gravity="center"
+            android:textSize="@dimen/temperature_value_text_size"
+            android:textStyle="bold"
+            tools:text="" />
+
+        <TextView
+            android:id="@+id/feelsLikeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:gravity="center"
+            android:text="@string/feels_like_label" />
+
+        <TextView
+            android:id="@+id/feelsLikeValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:gravity="center"
+            android:textSize="@dimen/feels_like_text_size"
+            android:textStyle="bold"
+            tools:text="" />
+    </LinearLayout>
+</FrameLayout>
