@@ -22,26 +22,7 @@ class WeatherLoader(
     fun goToInternet() {
 
         Thread {
-            var urlConnection: HttpsURLConnection? = null
-            val uri = URL("https://api.weather.yandex.ru/v2/informers?lat=${lat}&lon=${lon}")
-            try {
-                urlConnection = uri.openConnection() as HttpsURLConnection
-                urlConnection.apply {
-                    requestMethod = "GET"
-                    readTimeout = 10000
-                    addRequestProperty("X-Yandex-API-Key", BuildConfig.WEATHER_API_KEY)
-                }
-                var reader = BufferedReader(InputStreamReader(urlConnection.inputStream))
-                val result = reader.lines().collect(Collectors.joining("\n"))
-                val weatherDTO: WeatherDTO =
-                    Gson().fromJson(result, WeatherDTO::class.java)
-                listener.onLoaded(weatherDTO)
-            } catch (e: Exception) {
-                listener.onFailed(e)
-                Log.e("", "Failed", e)
-            } finally {
-                urlConnection?.disconnect()
-            }
+
         }.start()
     }
 
