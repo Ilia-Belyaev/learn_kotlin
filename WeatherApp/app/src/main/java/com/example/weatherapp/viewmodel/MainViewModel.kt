@@ -8,24 +8,27 @@ import com.example.weatherapp.model.RepoImpl
 import com.example.weatherapp.model.Weather
 
 class MainViewModel : ViewModel() {
-    private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()// в viewmodel оперируем изменяемой livedata, в activity наоборот
+    private val liveDataToObserve: MutableLiveData<AppState> =
+        MutableLiveData()// в viewmodel оперируем изменяемой livedata, в activity наоборот
     val LiveData: LiveData<AppState> = liveDataToObserve
     private val repoImpl: Repo = RepoImpl()
 
     fun getLiveData() = liveDataToObserve
     fun getWeatherFromLocalSource(isRussian: Boolean) = getDataFromLocalSource(isRussian)
 
-    private fun getDataFromLocalSource(isRussian:Boolean = true) {
+    private fun getDataFromLocalSource(isRussian: Boolean = true) {
         liveDataToObserve.value = AppState.Loading
-        Thread {
-            liveDataToObserve.postValue(AppState.Success(
-                if(isRussian){
-                    repoImpl.getWeatherFromLocalStorageRus()
-                }else{
-                    repoImpl.getWeatherFromLocalStorageWorld()
-                }
-            ))
-        }.start()
+
+            liveDataToObserve.postValue(
+                AppState.Success(
+                    if (isRussian) {
+                        repoImpl.getWeatherFromLocalStorageRus()
+                    } else {
+                        repoImpl.getWeatherFromLocalStorageWorld()
+                    }
+                )
+            )
+
     }
 
 

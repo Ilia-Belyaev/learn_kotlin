@@ -59,7 +59,7 @@ class MainService(name: String = "MainService") : IntentService(name) {
             urlConnection.apply {
                 requestMethod = "GET"
                 readTimeout = 10000
-                addRequestProperty("X-Yandex-API-Key", "46fe3a8c-5ac7-4650-8578-40ab8b2a1082")
+                addRequestProperty("X-Yandex-API-Key", BuildConfig.WEATHER_API_KEY)
             }
 
             val reader = BufferedReader(InputStreamReader(urlConnection.inputStream))
