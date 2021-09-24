@@ -5,4 +5,7 @@
     <string name="city_coordinates">Широта/Долгота: %s, %s"</string>
     <string name="appwidget_text">Пока что тут пусто)</string>
     <string name="add_widget">Add widget</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="history">History</string>
 </resources>

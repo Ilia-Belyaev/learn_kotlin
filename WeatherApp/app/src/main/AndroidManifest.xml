@@ -3,12 +3,13 @@
     package="com.example.weatherapp.view">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        android:theme="@style/Theme.MaterialComponents.DayNight">
         <receiver android:name="com.example.weatherapp.widget.NewAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

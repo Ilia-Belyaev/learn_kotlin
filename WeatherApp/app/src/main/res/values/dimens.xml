@@ -5,6 +5,7 @@
     <dimen name="temperature_value_text_size">16sp</dimen>
     <dimen name="feels_like_text_size">16sp</dimen>
     <dimen name="city_name_size">35sp</dimen>
+    <dimen name="separator_view_item">1dp</dimen>
 
     <!--
 Refer to App Widget Documentation for margin information

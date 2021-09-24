@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.model.*
+import com.example.weatherapp.model.database.HistoryEntity
+import com.example.weatherapp.view.App
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,11 +13,13 @@ import retrofit2.Response
 
 import java.io.IOException
 import java.text.ParseException
+import java.util.*
 
 const val MAIN_LINK = "https://api.weather.yandex.ru/v2/informers?"
 
 class DetailViewModel : ViewModel() {
     private val repository: DetailsRepository = DetailsRepositoryImpl(RemoteDataSource())
+    private val localRepository:LocalRepository = LocalRepositoryImpl(App.getHistoryDao())
     private val detailLiveData = MutableLiveData<AppState>()
 
     val liveData: LiveData<AppState> = detailLiveData
@@ -31,14 +35,14 @@ class DetailViewModel : ViewModel() {
 
                 override fun onResponse(call: Call<WeatherDTO>, response: Response<WeatherDTO>) {
                     response.body()?.let {
-                        detailLiveData.postValue(checkResponse(it))
+                        detailLiveData.postValue(checkResponse(it,weather.city))
                     }
                 }
 
             })
     }
 
-    private fun checkResponse(response: WeatherDTO): AppState {
+    private fun checkResponse(response: WeatherDTO,city: City): AppState {
         val factDTO = response.fact
         return if (factDTO?.condition != null
             && factDTO.condition.isNotBlank()
@@ -48,6 +52,7 @@ class DetailViewModel : ViewModel() {
             AppState.Success(
                 listOf(
                     Weather(
+                        city = city,
                         temperature = factDTO.temp,
                         feelsLike = factDTO.feels_like,
                         condition = factDTO.condition
@@ -57,5 +62,17 @@ class DetailViewModel : ViewModel() {
         } else {
             AppState.Error(ParseException("Do not parse Gson", 0))
         }
+    }
+
+    fun saveWeather(weather: Weather){
+        localRepository.saveEntity(
+            HistoryEntity(
+                id = 0,
+                city = weather.city.city,
+                temperature = weather.temperature,
+                condition = weather.condition,
+                timestamp = Date().time
+            )
+        )
     }
 }
