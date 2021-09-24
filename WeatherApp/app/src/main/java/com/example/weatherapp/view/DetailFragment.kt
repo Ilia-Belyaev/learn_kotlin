@@ -62,6 +62,8 @@ class DetailFragment : Fragment() {
                 binding.mainView.show()
                 binding.loadingLayout.hide()
                 val weather = data.weather.first()
+
+                viewModel.saveWeather(weather)
                 with(binding) {
                     imageView.load("https://www.freepngimg.com/thumb/city/36275-3-city-hd.png")
                     temperatureValue.text = weather.temperature.toString()
