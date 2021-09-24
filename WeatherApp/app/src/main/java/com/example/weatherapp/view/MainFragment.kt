@@ -54,10 +54,9 @@ class MainFragment : Fragment() {
             recyclerView.adapter = adapter
             mainFragmentFAB.setOnClickListener {
                 isRus = !isRus
-                if (isRus) {
-                    mainFragmentFAB.setImageResource(R.drawable.ic_russia)
-                } else {
-                    mainFragmentFAB.setImageResource(R.drawable.ic_earth)
+                with(binding.mainFragmentFAB) {
+                    val icId = if (isRus) R.drawable.ic_russia else R.drawable.ic_earth
+                    setImageResource(icId)
                 }
                 viewModel.getWeatherFromLocalSource(isRus)
             }
