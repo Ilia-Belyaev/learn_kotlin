@@ -5,4 +5,9 @@
         android:title="@string/history"
         android:icon="@android:drawable/ic_menu_recent_history"
         app:showAsAction="always"/>
+
+    <item android:id="@+id/get_contacts"
+        android:title="@string/history"
+        android:icon="@drawable/ic_baseline_perm_contact"
+        app:showAsAction="always"/>
 </menu>
