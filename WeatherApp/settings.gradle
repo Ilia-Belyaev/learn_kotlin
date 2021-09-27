@@ -1,2 +1,3 @@
 rootProject.name = "WeatherApp"
 include ':app'
+include ':app-content-provider-client'
