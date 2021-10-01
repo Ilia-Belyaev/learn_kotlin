@@ -10,4 +10,14 @@
         android:title="@string/history"
         android:icon="@drawable/ic_baseline_perm_contact"
         app:showAsAction="always"/>
+
+    <item android:id="@+id/get_location"
+        android:title="@string/location"
+        android:icon="@drawable/ic_baseline_not_listed_location_24"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/show_map"
+        android:title="@string/location"
+        android:icon="@drawable/ic_baseline_map"
+        app:showAsAction="always"/>
 </menu>

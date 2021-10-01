@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=B8:14:A8:63:82:C8:46:2F:2F:AC:12:98:48:51:5C:38:7A:DA:2A:C9%3Bcom.example.weatherapp.view
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.example.weatherapp.view
+
+    SHA-1 certificate fingerprint:
+    B8:14:A8:63:82:C8:46:2F:2F:AC:12:98:48:51:5C:38:7A:DA:2A:C9
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB9dGBIuqyhLQiyYR_17eu-5_TQzJhb-08</string>
+</resources>
