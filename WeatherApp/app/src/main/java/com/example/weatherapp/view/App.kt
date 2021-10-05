@@ -1,9 +1,11 @@
 package com.example.weatherapp.view
 
 import android.app.Application
+import android.util.Log
 import androidx.room.Room
 import com.example.weatherapp.model.database.HistoryDAO
 import com.example.weatherapp.model.database.HistoryDataBase
+import com.google.firebase.messaging.FirebaseMessaging
 import java.lang.IllegalStateException
 
 class App:Application(){
@@ -11,6 +13,11 @@ class App:Application(){
     override fun onCreate() {
         super.onCreate()
         appInstance = this
+        FirebaseMessaging.getInstance().token.addOnCompleteListener{
+            if(it.isSuccessful){
+                Log.d("MyFirebaseMessage","token = ${it.result.toString()}")
+            }
+        }
     }
 
     companion object{
