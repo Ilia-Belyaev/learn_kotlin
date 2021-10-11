@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+
+
 }
 
 android {
@@ -22,7 +24,7 @@ android {
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
-        def apiKey  = properties.getProperty("yandex_weather_api_key", "")
+        def apiKey = properties.getProperty("yandex_weather_api_key", "")
         it.buildConfigField "String", "WEATHER_API_KEY", apiKey
     }
 
@@ -30,8 +32,13 @@ android {
     buildTypes {
 
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "TYPE", '"BETA"'
+        }
+        debug {
+            versionNameSuffix '-debug'
+            buildConfigField "String", "TYPE", '"BETA"'
         }
     }
     compileOptions {
@@ -68,4 +75,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
 }
